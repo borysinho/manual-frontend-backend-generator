@@ -148,8 +148,8 @@ Si tu repositorio está en una subcarpeta, edita `vite.config.ts`:
 ```typescript
 export default defineConfig({
   plugins: [react()],
-  base: '/server-frontend-backend-generator/'  // Nombre del repo
-})
+  base: "/server-frontend-backend-generator/", // Nombre del repo
+});
 ```
 
 ---
@@ -299,6 +299,7 @@ Antes de desplegar, asegúrate de:
 ### 1. Caché y Compresión
 
 Ya está configurado en Vite, pero verifica:
+
 - Gzip/Brotli habilitado en servidor
 - Headers de caché apropiados
 - Minificación de assets
@@ -309,12 +310,17 @@ Agregar Google Analytics en `index.html`:
 
 ```html
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+  gtag("config", "G-XXXXXXXXXX");
 </script>
 ```
 
@@ -326,8 +332,14 @@ Editar `index.html`:
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Manual de Usuario del Sistema Generador de Diagramas UML con generación automática de código Spring Boot y Flutter" />
-  <meta name="keywords" content="UML, diagrama, generador, Spring Boot, Flutter, código automático" />
+  <meta
+    name="description"
+    content="Manual de Usuario del Sistema Generador de Diagramas UML con generación automática de código Spring Boot y Flutter"
+  />
+  <meta
+    name="keywords"
+    content="UML, diagrama, generador, Spring Boot, Flutter, código automático"
+  />
   <meta name="author" content="Tu Nombre" />
   <title>Manual de Usuario - Sistema UML</title>
 </head>
@@ -338,16 +350,20 @@ Editar `index.html`:
 ## 🔧 Troubleshooting
 
 ### Error: "Cannot GET /"
+
 - Solución: Configurar fallback a index.html en servidor
 
 ### Rutas 404 al recargar
+
 - Solución: Configurar SPA redirect en hosting
 
 ### Assets no cargan
+
 - Verificar `base` en `vite.config.ts`
 - Revisar rutas absolutas vs relativas
 
 ### Lento en producción
+
 - Verificar compresión gzip/brotli
 - Optimizar imágenes
 - Habilitar caché del navegador
